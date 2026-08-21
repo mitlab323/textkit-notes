@@ -101,6 +101,12 @@
 <link rel="stylesheet" href="katex/katex.min.css">
 <script defer src="katex/katex.min.js"></script>
 <script defer src="katex/auto-render.min.js"></script>
+<script>
+window.addEventListener('load', function(){
+  var opts = {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false};
+  try { if (window.renderMathInElement) renderMathInElement(document.body, opts); } catch(e) {}
+});
+</script>
 </head>
 <body>
 
@@ -728,12 +734,9 @@ let bnLog=[]; const bnA=t=>{bnLog.push(t); $('bnLog').textContent=bnLog.join('\n
     bnA(`P(z₁|w₁)=P(w₁|z₁)P(z₁)/P(w₁) = ${n.pw.z1}×${n.pz1.toFixed(2)} / ${n.pw1.toFixed(2)} = ${(n.pw.z1*n.pz1/n.pw1).toFixed(3)}`);
     bnA(`② 傳到 y：P(w₁|y₁)=P(w₁|z₁)P(z₁|y₁)+P(w₁|z₀)P(z₀|y₁) = ${(n.pw.z1*n.pz.y1+n.pw.z0*(1-n.pz.y1)).toFixed(3)}`);
     bnA(`✅ 與課本：P(z₁|w₁)=0.57 一致；P(x₀|w₁)=0.4 留作習題。`); };
-  bnReset.onclick();
+  $('bnReset').onclick();
 })();
-/* ---- KaTeX ---- */
-const MATH_OPTS={delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false};
-function mathRender(el){ if(window.renderMathInElement){ try{ renderMathInElement(el,MATH_OPTS);}catch(e){} } }
-document.addEventListener('DOMContentLoaded',()=>{ if(window.renderMathInElement) renderMathInElement(document.body,MATH_OPTS); });
+
 
 </script>
 </body>
