@@ -6,9 +6,9 @@
 <title>特徵產生 II — 互動式學習講義（Feature Generation II）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="katex/katex.min.css">
+<script defer src="katex/katex.min.js"></script>
+<script defer src="katex/auto-render.min.js"></script>
 <style>
   :root{
     --bg:#f6f7fb; --card:#ffffff; --ink:#1d2333; --sub:#5b6478;
@@ -333,7 +333,7 @@
     <span style="font-size:20px;color:#0ea5e9;font-weight:700">→</span>
     <span style="border:1.6px solid #16a34a;border-radius:10px;background:#f0fdf4;padding:7px 14px;font-weight:800">「這是哪一類？」<small style="display:block;color:#475569;font-weight:600">分類器</small></span>
   </div>
-  <div class="cap">特徵產生 → 特徵向量 → 分類器 → 類別判斷（HTML 排版，避免 KaTeX 對中文缺乏字型度量）</div>
+  <div class="cap">特徵產生 → 特徵向量 → 分類器 → 類別判斷</div>
 </div>
   </div>
 
@@ -359,7 +359,7 @@
   <div class="card">
     <p><b>做法只有三步：</b>把圖片區域的每個像素亮度值拿出來 → 統計「每個灰階值出現的比例」得到直方圖（histogram）→ 從直方圖算出幾個數字當特徵。</p>
     <div class="formula">$$P(I)=\frac{\text{count of pixels with gray level }I}{\text{total pixels in region}}$$
-<div class="cap">(7.1) 直方圖 = 灰階值 I 出現的機率（比例）——中文說明統一放在公式外。</div></div>
+<div class="cap">(7.1) 直方圖 = 灰階值 I 出現的機率（比例）</div></div>
     <table class="data">
       <tr><th>特徵</th><th>公式留印象</th><th>白話意義</th><th>數字大代表…</th></tr>
       <tr><td>平均值 Mean</td><td>$m_1 = E[I]$</td><td>整體亮度</td><td>畫面偏亮</td></tr>

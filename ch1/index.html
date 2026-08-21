@@ -98,8 +98,9 @@
   .mapbox{background:linear-gradient(135deg,#f5f7ff,#f0faf7);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.9;overflow-x:auto;white-space:pre;color:#334155}
   .mapbox b{color:var(--brand)}
 </style>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="katex/katex.min.css">
+<script defer src="katex/katex.min.js"></script>
+<script defer src="katex/auto-render.min.js"></script>
 </head>
 <body>
 
@@ -289,7 +290,7 @@
   <h3>2.2 三個零件的正式定義</h3>
   <div class="card">
     <div class="formula">$$\mathbf{x}=[x_1,x_2,\ldots,x_l]^{T}$$
-<div class="cap">特徵向量：每個 pattern（樣本）唯一對應一個 x（課本 1.2）——中文說明一律置於公式外，避免 KaTeX 中文字型度量問題</div></div>
+<div class="cap">特徵向量：每個 pattern（樣本）唯一對應一個 x（課本 1.2）</div></div>
     <table class="data">
       <tr><th>術語</th><th>白話</th><th>課本重點</th></tr>
       <tr><td>特徵 Feature</td><td>從樣本量測出的「有意義數字」（本例：mean、std）</td><td>問題依賴：怎麼產生？是四大問題之一</td></tr>
