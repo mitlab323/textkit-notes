@@ -1,0 +1,7 @@
+numpy
+matplotlib
+scipy
+scikit-image
+jupyter
+# 音訊章節選用（筆記本 3 有純 NumPy 版本，沒裝也能跑）
+librosa
