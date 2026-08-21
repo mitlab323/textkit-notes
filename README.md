@@ -25,4 +25,4 @@ jupyter notebook ch1/                 # 或 ch7/
 
 ## ⚖️ 聲明
 - 講義與筆記本為作者依 Theodoridis & Koutroumbas《Pattern Recognition》自行整理之學習教材；課文全文（sources）不在此公開，講義內僅含以教學目的引用之必要圖例與自行撰寫的解說。
-- 公式以 KaTeX CDN 渲染，瀏覽需網路。
+- 公式由本機 KaTeX 渲染（`ch*/katex/`），不需 CDN，離線可看。
