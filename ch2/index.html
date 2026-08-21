@@ -494,7 +494,7 @@ window.addEventListener('load', function(){
     <p><b>一句話</b>：樸素貝氏假設「全部獨立」太強；貝氏網路用<b>條件獨立</b>（每個變數只依賴幾個「父」變數）折衷——只壓該壓的維。</p>
     <div class="formula">$$p(\mathbf{x})=p(x_1)\prod_{i=2}^l p(x_i|A_i),\quad A_i\subseteq\{x_{i-1},\dots,x_1\}\qquad (2.128)$$</div>
     <ul style="font-size:14.5px">
-      <li><b>圖</b>：DAG。節點＝變數；邊＝「直接因果/關聯」；每節點一張條件機率表 P(x_i | 父變數)。</li>
+      <li><b>圖</b>：DAG。節點＝變數；邊＝「直接因果/關聯」；每節點一張條件機率表 $P(x_i \mid \text{parents})$。</li>
       <li><b>省多少</b>：l=6 全聯合要 $2^6-1=63$ 個機率；圖 2.27 的獨立假設只需 <b>13</b> 個。</li>
       <li><b>推論</b>：給定一些變數（證據）→ 問別的變數。樹狀用<b>訊息傳遞</b>（向下因果＋向上證據），單連通網路與節點數<b>線性</b>；多連通 NP-hard。</li>
     </ul>
