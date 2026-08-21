@@ -503,8 +503,8 @@ window.addEventListener('load', function(){
     <div class="card" style="margin:8px 0 0;background:#f8fafc">
       <p style="margin:0"><b>Example 2.11 逐步（配合 Demo 4）</b>：鏈式 $x\to y\to z\to w$，給定 $P(x_1)=0.6$ 與三張條件表：</p>
       <ul style="font-size:14px;margin:6px 0 0">
-        <li><b>向下（證據 x1）</b>：$P(z_1|x_1)=P(z_1|y_1)P(y_1|x_1)+P(z_1|y_0)P(y_0|x_1)=0.25\times0.4+0.6\times0.6=<b>0.46</b>$；再傳到 w：$P(w_0|x_1)=0.63$（課本 2.135/2.137）</li>
-        <li><b>向上（證據 w1）</b>：$P(z_1|w_1)=\frac{P(w_1|z_1)P(z_1)}{P(w_1)}=\frac{0.45\times0.47}{0.37}=<b>0.57</b>$（課本 0.57）</li>
+        <li><b>向下（證據 x1）</b>：$P(z_1|x_1)=P(z_1|y_1)P(y_1|x_1)+P(z_1|y_0)P(y_0|x_1)=0.25\times0.4+0.6\times0.6=\mathbf{0.46}$；再傳到 w：$P(w_0|x_1)=0.63$（課本 2.135/2.137）</li>
+        <li><b>向上（證據 w1）</b>：$P(z_1|w_1)=\frac{P(w_1|z_1)P(z_1)}{P(w_1)}=\frac{0.45\times0.47}{0.37}=\mathbf{0.57}$（課本 0.57）</li>
       </ul>
       <p style="margin:6px 0 0;font-size:13px;color:var(--sub)">nb4 任務 3 用 5 行 Python 把這串數字算給你看——訊息不是神秘巫術，就是「貝氏定理逐節點接力」。</p>
     </div>
