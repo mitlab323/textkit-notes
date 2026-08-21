@@ -174,9 +174,6 @@ window.addEventListener('load', function () {
 <section id="kmap">
   <div class="sec-head"><span class="sec-num">MAP</span><h2>全域知識地圖</h2><span class="en">Knowledge Map</span></div>
   <div class="card">
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="784.528258pt" height="239.460111pt" viewBox="0 0 784.528258 239.460111" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -8446,7 +8443,7 @@ z
       <div class="statcell mono">w = [<b id="d2w">0,0,0</b>]</div>
     </div>
     <div class="grid2">
-      <div><input type="range" id="d2rho" min="0.01" max="1" value="0.1" step="0.01" style="width:200px"><span class="mono" style="font-size:12px"> 學習率 ρ</span>
+      <div><input type="range" id="d2rhoS" min="0.01" max="1" value="0.1" step="0.01" style="width:200px"><span class="mono" style="font-size:12px"> 學習率 ρ</span>
       <span style="margin-left:14px"><input type="checkbox" id="d2ex" checked> <label for="d2ex">用課本 Example 3.1 的點</label></span></div>
       <div style="text-align:right">
         <button class="btn ghost sm" id="d2reset">重來</button>
@@ -8585,7 +8582,7 @@ z
       <div class="statcell mono">真值 f(x) = sin(5x) + 0.6x</div>
       <div class="statcell mono">結論 <b id="d4concl">—</b></div>
     </div>
-    <div><input type="range" id="d4deg" min="1" max="18" value="2" step="1" style="width:420px"></div>
+    <div><input type="range" id="d4degS" min="1" max="18" value="2" step="1" style="width:420px"></div>
     <canvas id="cv4" width="760" height="400"></canvas>
     <p class="dsub" id="d4msg">灰線 = 40 組不同訓練集各自的擬合；粗紅線 = 它們的平均；藍虛線 = 你沒看過的真值。灰色帶越寬，代表「換份資料就大變樣」。</p>
     <div class="grid3">
@@ -17116,7 +17113,8 @@ try{
   function genM(){ return twoClouds(24, -0.9, 0.6, 0.9, -0.55, 0.45, 0.5, 11, -2.0, 2.0, -1.5, 1.5); }
   var w = [0,0,0], step = 0, rho = 0.1, tmr = null;
   var elT = document.getElementById('d2t'), elE = document.getElementById('d2err'),
-      elW = document.getElementById('d2w'), elR = document.getElementById('d2rho');
+      elW = document.getElementById('d2w'), elR = document.getElementById('d2rhoS'),
+      elRV = document.getElementById('d2rho');
   function misSet(){ var Y=[]; for(var i=0;i<P.length;i++){ var d=P[i].c*(w[0]*P[i].x+w[1]*P[i].y+w[2]); if(d<=0) Y.push(i); } return Y; }
   function draw(){
     var v = view(cv, P, 0.15);
@@ -17160,7 +17158,7 @@ try{
   document.getElementById('d2reset').addEventListener('click', reset);
   document.getElementById('d2step').addEventListener('click', oneStep);
   document.getElementById('d2run').addEventListener('click', function(){ stopAuto(); tmr = setInterval(oneStep, 350); });
-  elR.addEventListener('input', function(){ rho = +elR.value; document.getElementById('d2rhov').textContent = rho.toFixed(2); });
+  elR.addEventListener('input', function(){ rho = +elR.value; elRV.textContent = rho.toFixed(2); });
   document.getElementById('d2ex').addEventListener('change', function(){ ex31 = this.checked; reset(); });
   reset();
 }catch(e){ console.error('Demo2:', e); }
@@ -17313,7 +17311,7 @@ try{
     document.getElementById('d4var').textContent = varSum.toFixed(4);
     document.getElementById('d4concl').textContent = d<=2 ? '欠擬合：bias 主導' : (d>=9 ? '過擬合：variance 暴衝' : '中庸');
   }
-  document.getElementById('d4deg').addEventListener('input', function(){ deg=this.value; draw(); });
+  document.getElementById('d4degS').addEventListener('input', function(){ deg=this.value; draw(); });
   draw();
 }catch(e){ console.error('Demo4:', e); }
 })();
