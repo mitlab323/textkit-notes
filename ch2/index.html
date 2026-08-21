@@ -196,7 +196,7 @@ window.addEventListener('load', function(){
     <text x="425" y="420" fill="#1e293b" text-anchor="middle">二次決策面（橢圓/雙曲線）</text>
     <text x="425" y="438" fill="#475569" text-anchor="middle">Demo 2 切換看曲線</text>
     <rect x="560" y="380" width="230" height="74" rx="10" fill="#fff7ed" stroke="#ea580c"/>
-    <text x="675" y="402" font-weight="800" fill="#9a3412" text-anchor="middle">LDA：Σ 相同</text>
+    <text x="675" y="402" font-weight="800" fill="#9a3412" text-anchor="middle">LDA：$\Sigma$ 相同</text>
     <text x="675" y="420" fill="#1e293b" text-anchor="middle">線性決策面（超平面）</text>
     <text x="675" y="438" fill="#475569" text-anchor="middle">w=Σ⁻1(μi-μj)</text>
     <rect x="810" y="380" width="250" height="74" rx="10" fill="#fff7ed" stroke="#ea580c"/>
@@ -316,8 +316,18 @@ window.addEventListener('load', function(){
     <h3 style="margin-top:0">深入：Example 2.1 數字遊戲</h3>
 <p>方差 1/2、等先驗：<b>最小錯誤閾值 $x_0{=}1/2$</b>；損失 $\lambda_{12}=0.5,\ \lambda_{21}=1$ 時，解 $e^{-x^2}=2e^{-(x-1)^2}$ 得 <b>$x_0{=}(1-\ln2)/2\approx0.153$</b>（誤判 $\omega_2$ 更嚴重 → 閾值左移）。nb1 以數值積分實測。</p></div>
 
+<div class="card">
+    <h3 style="margin-top:0">🍀 類比：分類就是在跟「機率的莊家」下注</h3>
+<p>想猜新數據屬於哪一類，你就當自己在下注。<b>先驗</b>＝你原本對各類「勝率」的估計；<b>似然</b>＝眼前證據的力道；<b>後驗</b>＝看完證據、更新之後的新勝率。貝氏定理 = 莊家最誠實的賠率表：證據夠力，勝率才動。圖裡的陰影面積，就是你「亂下注」會賠的錢。</p></div>
+
 <div class="demo">
-    <div class="dhead"><span class="dot"></span><b>互動 Demo 1｜一維貝氏閾值實驗</b><span class="dsub">重現課本 Example 2.1：拉滑桿移動閾值，看錯誤面積與 Pe 怎麼變；「最佳」按鈕回到理論最優點</span></div>
+    <div class="card">
+    <h3 style="margin-top:0">🍀 類比：分類就是在跟「機率的莊家」下注</h3>
+<p>想猜新數據屬於哪一類，就當自己在跟莊家下注。<b>先驗</b>＝你原本對各類勝率的估計；<b>似然</b>＝眼前證據的力道；<b>後驗</b>＝看完證據更新後的新勝率。貝氏定理＝莊家最誠實的賠率表：證據夠力，勝率才動。陰影面積就是你亂下注會賠的錢。</p></div><div class="card">
+    <h3 style="margin-top:0">🍀 類比：共變異數矩陣 $\Sigma$ 就是「雞蛋的形狀」</h3>
+<p>每個類別在高斯眼裡是一顆捏好的蛋：<b>對角線</b>＝這顆蛋在長/短軸的長度（變異數）；<b>斜角</b>＝蛋歪不歪（特徵相關）。$\Sigma$ 相同→兩顆蛋一樣大，切線走直線（LDA）；不同→一顆大、一顆小，切線自動彎（QDA）。馬氏距離＝在「蛋的座標系」裡量你離蛋黃多遠。</p></div>
+
+<div class="dhead"><span class="dot"></span><b>互動 Demo 1｜一維貝氏閾值實驗</b><span class="dsub">重現課本 Example 2.1：拉滑桿移動閾值，看錯誤面積與 Pe 怎麼變；「最佳」按鈕回到理論最優點</span></div>
     <div class="pagerow">
       <span>兩類均值 $\mu_1{=}0$（藍）$\mu_2{=}1$（紅），$\sigma^2{=}1/2$，等先驗</span>
     </div>
@@ -343,6 +353,10 @@ window.addEventListener('load', function(){
 <section id="part2">
   <div class="sec-head"><span class="sec-num">PART 2</span><h2>判別函數與決策面 <span class="tag">難度 ★★</span></h2><span class="en">Discriminant functions &amp; decision surfaces</span></div>
   <div class="card">
+    <h3 style="margin-top:0">🍀 類比：判別函數＝同一座山的另一張地圖</h3>
+<p>後驗機率和 log 判別函數，是同一座山的兩種畫法（等高線 vs 3D）：<b>單調變換不改山頂位置</b>，只讓它更好算、更好畫。所以放心 log、log、log，答案永遠不變。</p></div>
+
+<div class="card">
     <p>與其直接比機率，不如用<b>判別函數</b> $g_i(\mathbf{x})\equiv f(P(\omega_i|\mathbf{x}))$（$f$ 單調遞增，如 $\ln$）：</p>
     <div class="formula">$$\text{classify to } \omega_i \text{ if } g_i(\mathbf{x})>g_j(\mathbf{x})\ \forall j\neq i\qquad \text{decision surface: } g_{ij}(\mathbf{x})\equiv g_i(\mathbf{x})-g_j(\mathbf{x})=0 \qquad (2.22)(2.23)$$
 <div class="cap">判別函數最大者勝出；決策面＝兩函數相等處</div></div>
@@ -389,6 +403,10 @@ window.addEventListener('load', function(){
     <h3 style="margin-top:0">深入：馬氏距離的「白化」幾何</h3>
 <p>馬氏 = 先白化再量歐氏：$\boldsymbol{\Sigma}=\boldsymbol{\Phi}\boldsymbol{\Lambda}\boldsymbol{\Phi}^T$（2.50），$\mathbf{x}'=\boldsymbol{\Phi}^T\mathbf{x}$ 下等距離曲線是標準橢圓（2.53）。Example 2.2：<b>$d_m^2(\boldsymbol{\mu}_1,\mathbf{x})=2.952$ vs $d_m^2(\boldsymbol{\mu}_2,\mathbf{x})=3.672$</b> → 判給 $\omega_1$（歐氏卻較近 $\omega_2$）。</p></div>
 
+<div class="card">
+    <h3 style="margin-top:0">🍀 類比：共變異數矩陣 $\Sigma$ 就是「雞蛋的形狀」</h3>
+<p>每個類別在高斯的眼裡，是一顆捏好的蛋：<b>對角線</b>＝這顆蛋在長/短軸各多長（變異數）；<b>斜角</b>＝蛋是否歪著放（特徵相關）。$\Sigma$ 相同時，兩顆蛋一樣大 → 切的線是直的（LDA）；$\Sigma$ 不同 → 一顆蛋大、一顆小 → 切線自動彎（QDA）。馬氏距離，就是「在蛋的座標系裡量你離蛋黃多遠」。</p></div>
+
 <div class="demo">
     <div class="dhead"><span class="dot"></span><b>互動 Demo 2｜LDA vs QDA 決策面</b><span class="dsub">切換「相同/不同共變異數」看決策邊界從直線變成曲線；點畫布查馬氏 vs 歐氏判別</span></div>
     <div class="pagerow">
@@ -411,6 +429,7 @@ window.addEventListener('load', function(){
   <div class="card">
     <h3 style="margin-top:0">4.0 先想：你在哪一格？</h3>
     <p>把「pdf 未知」拆兩種：<b>知道型態、不知參數</b>（例：我確定是高斯，但 $\mu$、$\sigma^2$ 未知）→ 用 4.1 的三種參數法；<b>連型態也未知</b> → 用 4.4 的無母數法。<b>先判斷再選工具，是這 Part 最重要的習慣。</b></p>
+<div class="mind">🍀 打個比方：見到濕地別先拿鏟子，先看是「我們知道土質但不知多深」（→ 參數法 ML/MAP/貝氏）還是「土質根本不知道」（→ 無母數 Parzen/kNN）。判斷錯工具，再辛苦也白挖。</div>
   </div>
 
   <div class="card">
@@ -490,7 +509,11 @@ window.addEventListener('load', function(){
   </div>
 
   <div class="card">
-    <h3 style="margin-top:0">5.2 貝氏網路：把「獨立」綁得恰到好處（2.7・選修）</h3>
+    <div class="card">
+    <h3 style="margin-top:0">🍀 類比：把爆炸大的「珍奶茶譜」拆成家庭樹</h3>
+<p>樸素貝氏假設全部配料互不相干（太天真）；貝氏網路則說：<b>「每樣配料只受它『老爸』影響」</b>——珍珠只聽甜度爸、甜度爸只聽糖漿爸。這樣一份本來要背 63 個數字的配方表，折成 13 個就夠；而且誰影響誰，畫成家譜（DAG）一眼看懂。</p></div>
+
+<h3 style="margin-top:0">5.2 貝氏網路：把「獨立」綁得恰到好處（2.7・選修）</h3>
     <p><b>一句話</b>：樸素貝氏假設「全部獨立」太強；貝氏網路用<b>條件獨立</b>（每個變數只依賴幾個「父」變數）折衷——只壓該壓的維。</p>
     <div class="formula">$$p(\mathbf{x})=p(x_1)\prod_{i=2}^l p(x_i|A_i),\quad A_i\subseteq\{x_{i-1},\dots,x_1\}\qquad (2.128)$$</div>
     <ul style="font-size:14.5px">
@@ -673,18 +696,18 @@ function lqDraw(){
   lqPts.forEach(p=>{ctx.fillStyle=p.c===0?'#2563eb':'#dc2626';ctx.beginPath();ctx.arc(px(p.x),py(p.y),5,0,6.28);ctx.fill();});
   [[3,3,'#1d4ed8'],[7,6,'#b91c1c']].forEach(m=>{ctx.fillStyle=m[2];ctx.beginPath();ctx.arc(px(m[0]),py(m[1]),7,0,6.28);ctx.fill();});
   ctx.fillStyle='#475569'; ctx.font='13px "Noto Sans TC"';
-  ctx.fillText(lqSame?'Σ 相同 → LDA（決策邊界 = 直線）':'Σ 不同 → QDA（決策邊界 = 曲線）',40,26);
+  ctx.fillText(lqSame?'$\Sigma$ 相同 → LDA（決策邊界 = 直線）':'Σ 不同 → QDA（決策邊界 = 曲線）',40,26);
 }
 lqGen(); lqDraw();
 (function(){
-  $('lqToggle').onclick=()=>{lqSame=!lqSame; $('lqToggle').textContent=lqSame?'切換：Σ 不同（QDA）':'切換：$\Sigma$ 相同（LDA）'; lqDraw(); $('lqMsg').innerHTML=lqSame?'Σ 相同時二次項在各類抵消 → 邊界是直線（LDA）。':'Σ 不同時保留二次項 → 邊界是曲線（QDA）。';};
+  $('lqToggle').onclick=()=>{lqSame=!lqSame; $('lqToggle').textContent=lqSame?'切換：Σ 不同（QDA）':'切換：$\Sigma$ 相同（LDA）'; lqDraw(); $('lqMsg').innerHTML=lqSame?'$\Sigma$ 相同時二次項在各類抵消 → 邊界是直線（LDA）。':'Σ 不同時保留二次項 → 邊界是曲線（QDA）。';};
   $('lqNew').onclick=()=>{lqGen();lqDraw();};
   $('lqCanvas').addEventListener('click',ev=>{const r=$('lqCanvas').getBoundingClientRect();
     const mx=(ev.clientX-r.left)*(620/r.width), my=(ev.clientY-r.top)*(420/r.height);
     const x=(mx-40)/540*10, y=10-(my-40)/340*10;
     if(x<0||x>10||y<0||y>10)return;
     const dE1=Math.hypot(x-3,y-3), dE2=Math.hypot(x-7,y-6);
-    $('lqMsg').innerHTML=`點 (${x.toFixed(2)},${y.toFixed(2)})：歐氏 d₁=${dE1.toFixed(2)} d₂=${dE2.toFixed(2)} → 判為 <b>ω${dE1<dE2?1:2}</b>（LDA 假設 Σ 相同時等價）`;});
+    $('lqMsg').innerHTML=`點 (${x.toFixed(2)},${y.toFixed(2)})：歐氏 d₁=${dE1.toFixed(2)} d₂=${dE2.toFixed(2)} → 判為 <b>ω${dE1<dE2?1:2}</b>（LDA 假設 $\Sigma$ 相同時等價）`;});
 })();
 /* ---- Demo 3：kNN ---- */
 let knPts=[], knK=5;
