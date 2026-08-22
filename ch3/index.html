@@ -8442,14 +8442,16 @@ z
       <div class="statcell mono">ρ = <b id="d2rho">0.1</b></div>
       <div class="statcell mono">w = [<b id="d2w">0,0,0</b>]</div>
     </div>
-    <div class="grid2">
-      <div><input type="range" id="d2rhoS" min="0.01" max="1" value="0.1" step="0.01" style="width:200px"><span class="mono" style="font-size:12px"> 學習率 ρ</span>
-      <span style="margin-left:14px"><input type="checkbox" id="d2ex" checked> <label for="d2ex">用課本 Example 3.1 的點</label></span></div>
-      <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;align-items:center">
-        <button class="btn ghost sm" id="d2reset">重來</button>
-        <button class="btn sm" id="d2step">轉一步 ⏭</button>
-        <button class="btn warnb sm" id="d2run">自動播 ▶</button>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:6px">
+      <div style="display:flex;gap:6px;align-items:center">
+        <input type="range" id="d2rhoS" min="0.01" max="1" value="0.1" step="0.01" style="width:200px"><span class="mono" style="font-size:12px"> 學習率 ρ</span>
       </div>
+      <label style="display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="d2ex" checked> 用課本 Example 3.1 的點</label>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0">
+      <button class="btn ghost sm" id="d2reset" style="min-width:72px">重來</button>
+      <button class="btn sm" id="d2step" style="min-width:98px">轉一步 ⏭</button>
+      <button class="btn warnb sm" id="d2run" style="min-width:98px">自動播 ▶</button>
     </div>
     <canvas id="cv2" width="760" height="400"></canvas>
     <p class="dsub" id="d2msg">被分錯的點會掛紅圈；每按一次 Step，紫線就朝「錯的人」轉一點。</p>
